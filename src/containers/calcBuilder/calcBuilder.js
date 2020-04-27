@@ -17,6 +17,23 @@ class calcBuilder extends Component {
 
     }
 
+    checkOperatorSet = () => {
+        //Regex to check if last character is also an operator
+        let numberValue = this.state.numberValue;
+        let lastTwoChar = numberValue.slice(-2);
+        let lastChar = numberValue.slice(-1);
+        // console.log('lastChar :', lastTwoChar)
+        // console.log('Char in numberval', lastTwoChar.match(/[^0-9]/g))
+        if(lastTwoChar.match(/[^0-9]/g)){
+            if (lastTwoChar.match(/[^0-9]/g).length > 1){
+                numberValue = numberValue.slice(0, -2)
+                console.log("NumberValue str",numberValue)
+                this.setState({numberValue: numberValue + lastChar})
+            }
+        }
+        
+    }
+
     operatorHandler = (operator) => {
         switch(operator){
             case "clear":
@@ -30,7 +47,8 @@ class calcBuilder extends Component {
             case "percent":
                 this.setState({typedVal: '%'}, () => 
                     this.setState((prevState) => ({ 
-                        numberValue: prevState.numberValue + this.state.typedVal
+                        numberValue: prevState.numberValue * 0.01,
+                        answer: prevState.answer * 0.01
                     }))
                 );
                 break;
@@ -38,7 +56,9 @@ class calcBuilder extends Component {
                 this.setState({typedVal: '/'}, () => 
                     this.setState((prevState) => ({ 
                         numberValue: prevState.numberValue + this.state.typedVal
-                    }))
+                    }), () => {
+                        this.checkOperatorSet()
+                    })
                 );
                 this.calculatingHandler('/')
                 break;
@@ -46,7 +66,9 @@ class calcBuilder extends Component {
                 this.setState({typedVal: 'x'}, () => 
                 this.setState((prevState) => ({ 
                     numberValue: prevState.numberValue + this.state.typedVal
-                }))
+                }), () => {
+                    this.checkOperatorSet()
+                })
                 );
                 this.calculatingHandler('*')
                 break;
@@ -54,7 +76,9 @@ class calcBuilder extends Component {
                 this.setState({typedVal: '-'}, () => 
                     this.setState((prevState) => ({ 
                         numberValue: prevState.numberValue + this.state.typedVal
-                    }))
+                    }), () => {
+                        this.checkOperatorSet()
+                    })
                 );
                 this.calculatingHandler('-')
                 break;
@@ -62,7 +86,9 @@ class calcBuilder extends Component {
                 this.setState({typedVal: '+'}, () => 
                     this.setState((prevState) => ({ 
                         numberValue: prevState.numberValue + this.state.typedVal
-                    }))
+                    }), () => {
+                        this.checkOperatorSet()
+                    })
                 );
                 this.calculatingHandler('+')
                 break;
@@ -77,17 +103,21 @@ class calcBuilder extends Component {
     }
 
     calculatingHandler = (operator) => {
+        
         //initialize answer with first input
         if(!this.state.answer){
             let firstNumVal = this.state.numberValue;
+            //remove non digit characters
             firstNumVal = firstNumVal.replace(/\D/g,'')
             this.setState({ answer: firstNumVal})
         }
 
+        //if operator is clicked 
         if(operator){
             this.setState({
                 currentOperator: operator
             })
+            //else if digit is clicked
         }else{
             let numberValue = this.state.numberValue
             numberValue = numberValue.replace('x','*')

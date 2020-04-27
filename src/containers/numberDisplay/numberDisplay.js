@@ -7,11 +7,9 @@ class numberDisplay extends Component{
             <div className={classes['numberDisplayWrap']}>
                 <div
                 className={classes['numberInput']} 
-                // type="text" 
-                // name="number" 
-                // value={this.props.numberVal}
                  > 
-                {this.props.numberVal}</div>
+                {this.props.numberVal.toString()}
+                </div>
                 <div className={classes['answer']}>
                     ={this.props.answer}
                 </div>

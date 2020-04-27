@@ -6,8 +6,13 @@
 }
 
 .operatorBottomWrap{
-    display: flex;
+    
     box-sizing: border-box;
+}
+
+.operatorBottomWrapInner{
+    box-sizing: border-box;
+    display: flex;
 }
 
 .sidebuttons{

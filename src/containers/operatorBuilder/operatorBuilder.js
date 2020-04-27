@@ -35,10 +35,13 @@ class OperatorBuilder extends Component{
                     {operatorArr1}
                 </div>
                 <div className={classes['operatorBottomWrap']}>
-                    <Digitbuilder
-                    digitClicked = {(event, number) => this.props.digitClicked(event, number)}
-                    />
-                    <div className={classes['sidebuttons']}>{operatorArr2}</div>
+                    <div className={classes['operatorBottomWrapInner']}>
+                        <Digitbuilder
+                        digitClicked = {(event, number) => this.props.digitClicked(event, number)}
+                        />
+                        <div className={classes['sidebuttons']}>{operatorArr2}</div>
+                    </div>
+                    
                 </div>
             </div>
         )
