@@ -1,0 +1,7 @@
+.digitWrap{
+    display:flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    width: 75%;
+    box-sizing: border-box;
+}

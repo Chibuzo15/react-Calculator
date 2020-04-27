@@ -1,0 +1,16 @@
+.buttonBox{
+    width: 25vw;
+    height: 25vw;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.buttonText{
+    text-align: center;
+}
+
+@media screen and (min-width: 450px){
+    .buttonBox{
+        max-width: 160px;
+    }
+}

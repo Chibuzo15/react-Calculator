@@ -1,0 +1,17 @@
+.numberDisplayWrap{
+    height: 40vh;
+    display: flex;
+    box-sizing: border-box;
+}
+
+.numberInput{
+    width: 100vw;
+    font-size:60px;
+    align-self: flex-end;
+    box-sizing: border-box;
+}
+
+.answer{
+    font-size:40px;
+    color: grey;
+}

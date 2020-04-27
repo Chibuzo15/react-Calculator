@@ -1,0 +1,11 @@
+.calcBuilder{
+    width: 100vw;
+    border: 1px solid red
+}
+
+@media screen and (min-width: 500px){
+    .calcBuilder{
+        margin:auto;
+        max-width: 700px;
+    }
+}

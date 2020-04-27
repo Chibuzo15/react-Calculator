@@ -1,0 +1,21 @@
+.operatorTopWrap{
+    display: flex;
+    box-sizing: border-box;
+    justify-content: center;
+    /* flex-wrap: wrap; */
+}
+
+.operatorBottomWrap{
+    display: flex;
+    box-sizing: border-box;
+}
+
+.sidebuttons{
+    width: 25%;
+    box-sizing: border-box;
+}
+
+.operatorBodyWrap{
+    box-sizing: border-box;
+    width: 100%
+}
